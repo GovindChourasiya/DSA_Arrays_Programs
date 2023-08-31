@@ -1,0 +1,26 @@
+// You are using GCC
+//#include<iostream>
+//#include<iomanip>
+//using namespace std;
+//int main(){
+//    int numStudent;
+//    cin >> numStudent;
+//    int numSub;
+//    cin >> numSub;
+//    float arr[100];
+//    
+//    cout << "Average grades: " << endl;
+//    for(int i=0;i<numStudent;i++){
+//        float count = 0;
+//        for(int i=0;i<numSub;i++){
+//            
+//            cin >> arr[i];
+//            count += arr[i];
+//            
+//        }
+//        float temp = count;
+//        float average;
+//        average = (temp)/numSub;
+//        cout << "Student " << i+1 << ": " << fixed << setprecision(1) << average << endl;
+//    }
+//}
