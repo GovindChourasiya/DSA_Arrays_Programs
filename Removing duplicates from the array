@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+
+int main(){
+    int num;
+    cin >> num;
+    if(num<1 || num>100){
+        return 0;
+    }
+    int arr[100];
+    int arr1[100];
+    for(int i=0;i<num;i++){
+        cin >> arr[i];
+        
+    }
+    for(int i=0;i<num-1;i++){
+        for(int j=0;j<num-1-i;j++){
+            if(arr[j] >= arr[j+1]){
+                int temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    int temp;
+    for(int i=0;i<num;i++){
+        if(temp != arr[i]){
+        int count = 0;
+        for(int j=0;j<num;j++){
+            if(arr[i] == arr[j]){
+                count ++;
+            }
+        }
+        temp = arr[i];
+        if(count == 1){
+        cout << arr[i] << " - " << count << " time " << endl;
+            
+        }else if(count > 1){
+            cout << arr[i] << " - " << count << " times " << endl;
+        }
+        
+        }
+    }
+    
+    
+    return 0;
+}
