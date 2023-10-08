@@ -1,0 +1,64 @@
+// You are using GCC
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+void printArr(double arr[],int n){
+    for(int i=0;i<n;i++){
+        cout << fixed << setprecision(1) <<  arr[i] << " ";
+    }
+}
+int partition(double arr[],int si,int ei);
+void quickSort(double arr[],int si,int ei){
+    if(si>=ei){
+        return;
+    }
+    
+    int pidx = partition(arr,si,ei);
+    quickSort(arr,si,pidx-1);
+    quickSort(arr,pidx+1,ei);
+}
+int partition(double arr[],int si,int ei){
+    double pivot = arr[ei];
+    int i = si-1;
+    for(int j=si;j<ei;j++){
+        if(arr[j] >= pivot){
+            i++;
+            double temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    i++;
+    double temp = arr[ei];
+    arr[ei] = arr[i];
+    arr[i] = temp;
+    
+    return i;
+}
+
+int main(){
+    int n;
+    cin >> n;
+    double arr[n];
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    quickSort(arr,0,n-1);
+    printArr(arr,n);
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
