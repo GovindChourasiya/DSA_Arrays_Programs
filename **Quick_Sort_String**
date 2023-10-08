@@ -1,0 +1,56 @@
+// You are using GCC
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int partition(string names[],int si,int ei);
+void quickSort(string names[],int si,int ei) {
+    
+    //Type your code here
+    if(si>=ei){
+        return ;
+    }
+    int pidx = partition(names,si,ei);
+    quickSort(names,si,pidx-1);
+    quickSort(names,pidx+1,ei);
+}
+
+int partition(string names[], int si,int ei) {
+    string pivot = names[ei];
+    int i = si-1;
+    for(int j=si;j<ei;j++){
+        if(names[j] <= pivot){
+            i++;
+            string temp = names[j];
+            names[j] = names[i];
+            names[i] = temp;
+        }
+    }
+    i++;
+    string temp = names[ei];
+    names[ei] = names[i];
+    names[i] = temp;
+    
+    return i;
+    //Type your code here
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    string names[n];
+    
+    for (int i = 0; i < n; i++) {
+        cin >> names[i];
+    }
+    
+    quickSort(names, 0, n - 1);
+    
+    for (int i = 0; i < n; i++) {
+        cout << names[i] << endl;
+    }
+    
+    return 0;
+}
